@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Marex Hexo">
 <meta property="og:description" content="Halo, Saat ini saya akan menjelaskan tentang PostgresBDR. 1. Apa Itu PostgresBDR ?PostgresBDR adalah sebuah aplikasi dari PostgreSQL, yang mana berfungsi sebagai replikasi database server. Spesifik ny">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-28T22:24:09.732Z">
+<meta property="og:updated_time" content="2019-11-28T22:44:50.289Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Marex Hexo" type="application/atom+xml">
@@ -98,7 +98,7 @@
 <li>Menginstall Postgres-BDR melalui apt </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">sudo sh -c &apos;echo &quot;deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main&quot; &gt; /etc/apt/sources.list.d/pgdg.list&apos;</span><br><span class="line"></span><br><span class="line">sudo sh -c &apos;echo &quot;deb [arch=amd64] http://packages.2ndquadrant.com/bdr/apt/ $(lsb_release -cs)-2ndquadrant main&quot; &gt; /etc/apt/sources.list.d/2ndquadrant.list&apos;</span><br><span class="line"></span><br><span class="line">sudo apt-get install wget ca-certificates</span><br><span class="line"></span><br><span class="line">wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -</span><br><span class="line"></span><br><span class="line">wget --quiet -O - http://packages.2ndquadrant.com/bdr/apt/AA7A6805.asc | sudo apt-key add -</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get upgrade</span><br><span class="line"></span><br><span class="line">sudo apt-get install postgresql-bdr-9.4 </span><br><span class="line"></span><br><span class="line">postgresql-bdr-9.4-bdr-plugin</span><br></pre></td></tr></table></figure>
-
+<p>Kalau tidak bisa melalui tutorial diatas, silakan untuk mencoba menginstall postgres-bdr nya melalui link berikut : <a href="https://www.2ndquadrant.com/en/resources/bdr/bdr-installation-instructions/" target="_blank" rel="noopener">https://www.2ndquadrant.com/en/resources/bdr/bdr-installation-instructions/</a></p>
 <ul>
 <li>Buat directory postgresBDR, dan setting path serta inisiasi db </li>
 </ul>
@@ -138,7 +138,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://localhost/2019/11/26/PostgreBDR/" data-id="ck3jacf3p0001x4d8c6k70c5z" class="article-share-link">Share</a>
+      <a data-url="http://localhost/2019/11/26/PostgreBDR/" data-id="ck3jb4a7e0001wed88fjkc893" class="article-share-link">Share</a>
       
       
     </footer>
