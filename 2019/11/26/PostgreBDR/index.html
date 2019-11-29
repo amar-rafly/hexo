@@ -1,44 +1,204 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>PostgreBDR | lyyourc</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css">
-  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
-  
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Amar Rafli">
+
+
+    <meta name="subtitle" content="Marex Hexo">
+
+
+    <meta name="description" content="Welcome to My Blog :)">
+
+
+    <meta name="keywords" content="amar">
+
+
+<title>PostgreBDR | Marex Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
 </head>
-
 <body>
-  <nav class="app-nav">
-  
-    
-      <a href="/.">home</a>
-    
-  
-    
-      <a href="/archives">archive</a>
-    
-  
-    
-      <a href="/atom.xml">rss</a>
-    
-  
-</nav>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Bentham&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
 
-  <main class="post">
-  <article>
-  <h1 class="article-title">
-    <a href="/2019/11/26/PostgreBDR/">PostgreBDR</a>
-  </h1>
+        </div>
+    </nav>
 
-  <section class="article-meta">
-    <p class="article-date">November 26 2019</p>
-  </section>
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Bentham&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
 
-  <section class="article-entry">
-    <p>Halo,</p>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">PostgreBDR</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Amar Rafli</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">November 26, 2019&nbsp;&nbsp;20:38:00</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>Halo,</p>
 <p>Saat ini saya akan menjelaskan tentang PostgresBDR.</p>
 <h5 id="1-Apa-Itu-PostgresBDR"><a href="#1-Apa-Itu-PostgresBDR" class="headerlink" title="1. Apa Itu PostgresBDR ?"></a>1. Apa Itu PostgresBDR ?</h5><p>PostgresBDR adalah sebuah aplikasi dari PostgreSQL, yang mana berfungsi sebagai replikasi database server. Spesifik nya replikasi database server master - master</p>
 <p>Apa itu replikasi database ?, replikasi database adalah suatu sistem dimana fungsi nya sebagai backup dari database utama, ketika database utama mengalami error maka query yang masuk akan diproses oleh database yang lain. </p>
@@ -84,79 +244,70 @@
 
 <h5 id="Note-Anda-tidak-perlu-membuat-grup-pada-master-2-Anda-hanya-perlu-membuat-master-2-join-ke-grup-master-1"><a href="#Note-Anda-tidak-perlu-membuat-grup-pada-master-2-Anda-hanya-perlu-membuat-master-2-join-ke-grup-master-1" class="headerlink" title="Note: Anda tidak perlu membuat grup pada master 2, Anda hanya perlu membuat master 2 join ke grup master 1."></a>Note: Anda tidak perlu membuat grup pada master 2, Anda hanya perlu membuat master 2 join ke grup master 1.</h5><p>Itulah sedikit informasi yang bisa saya sampaikan mengenai Postgres-BDR, see you on the next post, thanks ! :)</p>
 
-  </section>
-</article>
+        </div>
 
-  <div class="sharing grid">
-  <section class="profile grid-item grid">
-    <img class="avatar" src="https://7xrcp8.com1.z0.glb.clouddn.com/avatar.png" alt="avatar" />
-    <div class="grid-item">
-      <p class="title"> lyyourc </p>
-      <p class="subtitle"> You Are The JavaScript In My HTML </p>
-    <div>
-  </section>
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Amar Rafli</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://localhost/2019/11/26/PostgreBDR/">http://localhost/2019/11/26/PostgreBDR/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY<strong>?</span>
+                     </p>
+                
 
-  <section class="share-btns">
-    <!-- <p> share it if you like it~ </p> -->
-    <a
-  class="twitter-share-button"
-  data-size="large"
-  data-via="DrakeLeung"
-  href="https://twitter.com/intent/tweet?text=Halo,</p>
-<p>Saat in"
->
-  Tweet
-</a>
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();" target="_blank" rel="noopener">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/11/29/hello-world/">Hello World</a>
+            
+            
+            <a class="next" rel="next" href="/2019/11/22/Struktur-Server-Blocks-Nginx-1/">Struktur Server Blocks Nginx</a>
+            
+        </section>
 
-<script>
-  window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  js.async = true;
-  fjs.parentNode.insertBefore(js, fjs);
 
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
-
-  return t;
-}(document, "script", "twitter-wjs"));
-</script>
-
-  </section>
+    </article>
 </div>
 
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Amar Rafli | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
 
-  
-    
-<section class="article-comment">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
-
-<script>
-  var disqus_shortname = 'drakeleung';
-  
-  var disqus_url = 'http://localhost/2019/11/26/PostgreBDR/';
-  
-  (function(){
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
-
-
-  
-</main>
-
+    </div>
 </body>
 </html>
