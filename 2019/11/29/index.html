@@ -18,7 +18,7 @@
     <meta name="keywords" content="amar">
 
 
-<title>Struktur Server Blocks Nginx | Marex Hexo</title>
+<title>Hello World | Marex Hexo</title>
 
 
 
@@ -180,7 +180,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Struktur Server Blocks Nginx</h1>
+            <h1 class="post-title">Hello World</h1>
             
                 <div class="post-meta">
                     
@@ -189,7 +189,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">November 22, 2019&nbsp;&nbsp;6:36:00</a>
+                        Date: <a href="#">November 29, 2019&nbsp;&nbsp;7:12:43</a>
                         </span>
                     
                     
@@ -198,12 +198,19 @@
         </header>
 
         <div class="post-content">
-            <p>Halo,</p>
-<p>Saat ini saya akan mencoba menjelaskan sedikit tentang struktur ServerBlocks atau biasa dikenal dengan VirtualHost untuk Web Server Nginx. </p>
-<p>Sebelumnya sudah tau fungsi dari VirtualHost atau ServerBlocks itu apa ? VirtualHost atau ServerBlocks adalah suatu file yang berisi seluruh konfigurasi dari website Anda, yang nantinya dibaca dan dieksekusi oleh Web Server.</p>
-<h3 id="Berikut-contoh-Struktur-ServerBlocks-pada-Nginx"><a href="#Berikut-contoh-Struktur-ServerBlocks-pada-Nginx" class="headerlink" title="Berikut contoh Struktur ServerBlocks pada Nginx :"></a>Berikut contoh Struktur ServerBlocks pada Nginx :</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server &#123; </span><br><span class="line"></span><br><span class="line">listen 80; #listen port web server</span><br><span class="line">server_name amar2414.id; #nama domain/website Anda</span><br><span class="line">root /path/directory_root/website_Anda;</span><br><span class="line">error_log /path/directory/errorlog/website_Anda;</span><br><span class="line">index index.php index.html #directory index website Anda, dimana web server akan secara default mengekseskusi file index paling kiri (prioritas).</span><br><span class="line"></span><br><span class="line">location / &#123; Konfigurasi untuk URI</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ \.php$ &#123;  #Konfigurasi untuk php-fpm</span><br><span class="line">                try_files $uri /index.php = 404;</span><br><span class="line">                include fastcgi_params;</span><br><span class="line">                fastcgi_intercept_errors on;</span><br><span class="line">                fastcgi_pass unix:/var/run/php-fpm/php-fpm.sock;</span><br><span class="line">                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">                fastcgi_index index.php;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
-<p>Sekian struktur ServerBlocks yang dapat saya jelaskan, terima kasih!  :)</p>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
         </div>
 
@@ -218,7 +225,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://localhost/2019/11/22/Struktur-Server-Blocks-Nginx-1/">http://localhost/2019/11/22/Struktur-Server-Blocks-Nginx-1/</a></span>
+                        <span><a href="http://localhost/2019/11/29/">http://localhost/2019/11/29/</a></span>
                     </p>
                 
                 
@@ -251,8 +258,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/11/26/PostgreBDR/">PostgreBDR</a>
             
+            <a class="next" rel="next" href="/2019/11/26/">PostgreBDR</a>
             
         </section>
 
