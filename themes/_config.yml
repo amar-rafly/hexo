@@ -1,0 +1,27 @@
+version: 1633679241878
+language: cn
+aomori_logo: /images/wallpaper.jpg
+aomori_logo_type_animated: true
+aomori_menu:
+  Home: /
+  Archives: /Archives
+aomori_widgets:
+  - toc
+  - category
+  - tag
+  - recent_posts
+  - archive
+aomori_copyright: true
+aomori_social:
+  -
+    icon: Facebook
+    type: <box-icon type='logo' name='facebook-circle'></box-icon>
+    url:  https://www.facebook.com/dwigoena405
+  -
+    icon: Instagram
+    type: <box-icon name='instagram-alt' type='logo' ></box-icon>
+    url: https://instagram.com/amarrafle_/
+
+aomori_favicon: 🎮
+sidebar: false
+layout: tweet
