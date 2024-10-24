@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Ammar Rafli">
+
+
+
+    <meta name="description" content="Just Play, You are a Great Player">
+
+
+
+<title>Install dan Konfigurasi Exim4 dan Dovecot pada Ubuntu. | MarEx Blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Mare&#39;x Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Mare&#39;x Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Install dan Konfigurasi Exim4 dan Dovecot pada Ubuntu.</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Ammar Rafli</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">October 25, 2024&nbsp;&nbsp;12:00:00</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Server/">Server</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p><strong>1.Update dan install Exim menggunakan command dibawah ini</strong><br>  <code>- apt -y update &amp;&amp; apt -y upgrade</code><br>  <code>- apt -y install exim4-daemon-heavy</code><br>  <code>- dpkg-reconfigure exim4-config</code></p>
+<p><strong>2. Lalu setup instalasi Exim sesuai capture dibawah ini</strong></p>
+<p><img src="https://nos.wjv-1.neo.id/new-bucket-lock/setup1.jpg" alt="Setup1"><br><img src="https://nos.wjv-1.neo.id/new-bucket-lock/setup2.jpg" alt="Setup1"><br><img src="https://nos.wjv-1.neo.id/new-bucket-lock/setup3.jpg" alt="Setup1"><br><img src="https://nos.wjv-1.neo.id/new-bucket-lock/setup4.jpg" alt="Setup1"><br><img src="https://nos.wjv-1.neo.id/new-bucket-lock/setup5.jpg" alt="Setup1"><br><img src="https://nos.wjv-1.neo.id/new-bucket-lock/setup6.jpg" alt="Setup1"><br><img src="https://nos.wjv-1.neo.id/new-bucket-lock/setup7.jpg" alt="Setup1"><br><img src="https://nos.wjv-1.neo.id/new-bucket-lock/setup8.jpg" alt="Setup1"><br><img src="https://nos.wjv-1.neo.id/new-bucket-lock/setup9.jpg" alt="Setup1"><br><img src="https://nos.wjv-1.neo.id/new-bucket-lock/setup10.jpg" alt="Setup1"><br><img src="https://nos.wjv-1.neo.id/new-bucket-lock/setup11.jpg" alt="Setup1"><br><img src="https://nos.wjv-1.neo.id/new-bucket-lock/setup12.jpg" alt="Setup1"><br><img src="https://nos.wjv-1.neo.id/new-bucket-lock/setup13.jpg" alt="Setup1"></p>
+<p><strong>3.Konfigurasi route dan SMTP Exim</strong></p>
+<p><code>- domainlist local_domains = MAIN_LOCAL_DOMAINS : lsearch;/etc/listofdomains</code> </p>
+<p>File &#x2F;etc&#x2F;listofdomains nantinya digunakan untuk men-whitelist domain mana saja yang bisa mengirim melalui exim</p>
+<p>Selanjutnya masuk ke bagian virtual router,silakan untuk menambahkan konfigurasi sesuai capture berikut:</p>
+<p><img src="https://nos.wjv-1.neo.id/new-bucket-lock/router%20section.jpg" alt="Setup1"></p>
+<pre><code>#####################################################
+### virtual router configuration 
+#####################################################
+
+virtual_router:
+  driver = accept
+  require_files = +/home/vmail/$local_part@$domain/
+  transport = virtual_transport
+
+#####################################################
+### end virtual router configuration 
+#####################################################
+</code></pre>
+<p>Selanjutnya masuk ke konfigurasi transport exim,silakan untuk menambahkan konfigurasi sesuai capture berikut.</p>
+<p><img src="https://nos.wjv-1.neo.id/new-bucket-lock/transport%20section.jpg" alt="Setup1"></p>
+<pre><code>#####################################################
+### transport that handles delivery to local users
+#####################################################
+
+local_delivery:
+  debug_print = &quot;T:appendfile for $local_part@domain&quot;
+  driver = appendfile
+  directory = $home/Maildir
+  maildir_format
+  delivery_date_add
+  envelope_to_add
+  return_path_add  
+
+virtual_transport:
+  driver = appendfile
+  directory = /home/vmail/$local_part@$domain/
+  maildir_format
+  delivery_date_add
+  envelope_to_add
+  return_path_add
+  user = vmail
+  group = vmail
+  mode = 0660
+  mode_fail_narrower = false
+</code></pre>
+<p>Selanjutnya,masuk ke bagian authentikasi dan pada kali ini saya akan menggunakan authentikasi dovecot.</p>
+<p><img src="https://nos.wjv-1.neo.id/new-bucket-lock/dovecot%20exim.jpg" alt="Setup1"></p>
+<pre><code>#Dovecot Authenticator
+ 
+dovecot_login:
+  driver = dovecot
+  public_name = LOGIN
+  server_socket = /var/run/dovecot/auth-client
+  server_set_id = $auth1
+
+dovecot_plain:
+  driver = dovecot
+  public_name = PLAIN
+  server_socket = /var/run/dovecot/auth-client
+  server_set_id = $auth1
+</code></pre>
+<p>Lalu selanjutnya,kita perlu menambahkan smtp helo dan auth untuk outgoing menggunakan 465</p>
+<p><img src="https://nos.wjv-1.neo.id/new-bucket-lock/advertise%20host.jpg" alt="Setup1"><br><img src="https://nos.wjv-1.neo.id/new-bucket-lock/advertise%20host%201.jpg" alt="Setup1"><br><img src="https://nos.wjv-1.neo.id/new-bucket-lock/listener.jpg" alt="Setup1"></p>
+<p><strong>4. Menambahkan domain yang diizinkan mengirim email via exim,Anda bisa menambahkan root domain,FQDN (Hostname Mail Server), dan Domain lain</strong></p>
+<p><code>vim/etc/listofdomains</code></p>
+<pre><code>server.example.com
+example.com
+voorbeeld.nl
+</code></pre>
+<p><strong>5. Instalasi dan Konfigurasi Dovecot</strong></p>
+<pre><code>apt -y install dovecot-core dovecot-imapd dovecot-pop3d
+</code></pre>
+<p>Selanjutnya, silakan men-setting konfigurasi untuk maildir user di dovecot</p>
+<pre><code>/etc/dovecot/conf.d/10-mail.conf
+</code></pre>
+<pre><code>mail_location = maildir:/home/vmail/%u
+</code></pre>
+<p>Selanjutnya,kita perlu men-define authentikasi dan ownership dovecot</p>
+<pre><code>vim /etc/dovecot/conf.d/10-master.conf
+</code></pre>
+<pre><code>service auth &#123;
+   unix_listener auth-client &#123;
+      mode = 0660
+      user = Debian-exim
+   &#125;
+&#125;
+</code></pre>
+<p>Selanjutnya,kita perlu men-define authentikasi yang akan digunakan untuk login ke user</p>
+<pre><code>vim /etc/dovecot/conf.d/10-auth.conf
+</code></pre>
+<pre><code>auth_mechanisms = plain login
+</code></pre>
+<p>Selanjutnya,konfigurasi untuk menyimpan password user nantinya (passdb)</p>
+<pre><code>/etc/dovecot/conf.d/auth-system.conf.ext
+</code></pre>
+<pre><code>#passdb &#123;
+#  driver = pam
+  # [session=yes] [setcred=yes] [failure_show_msg=yes] [max_requests=&lt;n&gt;]
+  # [cache_key=&lt;key&gt;] [&lt;service name&gt;]
+  #args = dovecot
+#&#125;
+
+passdb &#123;
+  driver = passwd-file
+  args = /etc/dovecot/imap.passwd
+&#125;
+
+#userdb &#123;
+  # &lt;doc/wiki/AuthDatabase.Passwd.txt&gt;
+#  driver = passwd
+  # [blocking=no]
+  #args =
+#
+  # Override fields from passwd
+  #override_fields = home=/home/virtual/%u
+#&#125;
+
+userdb &#123;
+  driver = static
+  args = uid=vmail gid=vmail home=/home/vmail/%u
+&#125;
+</code></pre>
+<p>Lalu sesu<br>aikan konfigurasi pada file &#x2F;etc&#x2F;dovecot&#x2F;conf.d&#x2F;auth-passwdfile.conf.ext menjadi seperti berikut</p>
+<pre><code>passdb &#123;
+  driver = passwd-file
+  args = /etc/dovecot/imap.passwd
+&#125;
+</code></pre>
+<p>6.Konfigurasi untuk membuat user email</p>
+<pre><code>useradd vmail
+usermod -a -G vmail vmail
+</code></pre>
+<pre><code>vim /etc/aliases
+</code></pre>
+<p>Ubah root email menjadi berikut:</p>
+<pre><code>root:           mail@example.com
+</code></pre>
+<p>Lalu update konfigurasi exim dan restart kedua service exim dan dovecot</p>
+<pre><code>update-exim4.conf
+</code></pre>
+<pre><code>systemctl enable exim
+systemctl enable dovecot
+systemctl start exim
+systemctl start dovecot
+</code></pre>
+<p>Create bash script untuk membuat user exim</p>
+<pre><code>/etc/dovecot/create_mail.sh
+</code></pre>
+<pre><code>#!/bin/bash
+
+# Prompt for the user&#39;s email address
+read -p &quot;Enter user&#39;s mail address: &quot; mailaddress
+
+# Prompt for the user&#39;s password without echoing it
+read -sp &quot;Enter password: &quot; passwd
+echo  # Output a newline for formatting
+
+# Create the user&#39;s mail directory with appropriate permissions
+sudo mkdir -p /home/vmail/&quot;$mailaddress&quot;
+sudo chown vmail:vmail /home/vmail/&quot;$mailaddress&quot;
+sudo chmod go-rwx /home/vmail/&quot;$mailaddress&quot;
+
+# Generate the password hash using doveadm
+password_hash=$(doveadm pw -s SHA256-CRYPT -p &quot;$passwd&quot;)
+
+# Check if the password hash was generated successfully
+if [[ -z &quot;$password_hash&quot; ]]; then
+  echo &quot;Failed to generate password hash.&quot;
+  exit 1
+fi
+
+# Append the email address and hashed password to the Dovecot password file
+echo &quot;$mailaddress:$password_hash&quot; | sudo tee -a /etc/dovecot/imap.passwd
+
+# Set permissions on the password file
+sudo chown root:dovecot /etc/dovecot/imap.passwd
+sudo chmod 640 /etc/dovecot/imap.passwd
+
+echo &quot;User $mailaddress has been created.&quot;
+</code></pre>
+<pre><code>chmod +x /etc/dovecot/create_mail.sh
+</code></pre>
+<p>Lalu Anda bisa membuat user exim menggunakan command berikut:</p>
+<pre><code>./etc/dovecot/create_mail.sh
+</code></pre>
+<p>Lalu berikut hasil percobaan login,kirim dan terima email melalui thunderbird.</p>
+<p><img src="https://nos.wjv-1.neo.id/new-bucket-lock/login%20outlook.jpg" alt="Setup1"><br><img src="https://nos.wjv-1.neo.id/new-bucket-lock/kirim%20email.jpg" alt="Setup1"><br><img src="https://nos.wjv-1.neo.id/new-bucket-lock/terima%20email.jpg" alt="Setup1"></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Ammar Rafli</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://zeus.my.id/2024/10/25/Instalasi-Mail-Server-Postfix/">https://zeus.my.id/2024/10/25/Instalasi-Mail-Server-Postfix/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Dovecot/"># Dovecot</a>
+                    
+                        <a href="/tags/Email/"># Email</a>
+                    
+                        <a href="/tags/Ubuntu/"># Ubuntu</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2024/10/24/hello-world/">Hello World</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Ammar Rafli | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
